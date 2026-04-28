@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Bitácora - Jhayr Giles</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  color:#f1f5f9;
+  overflow-x:hidden;
+  background:linear-gradient(180deg, #020617, #0f172a);
+}
+
+/* ESTRELLAS */
+.stars{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity:0.4;
+  z-index:-1;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:120px 20px;
+}
+
+header h1{
+  font-size:3em;
+  color:#38bdf8;
+}
+
+header p{
+  margin-top:10px;
+  font-size:1.2em;
+  color:#cbd5f5;
+}
+
+/* SECCIONES */
+section{
+  max-width:900px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+/* TARJETAS */
+.card{
+  background:rgba(15,23,42,0.7);
+  border-radius:16px;
+  padding:25px;
+  margin:25px 0;
+  backdrop-filter:blur(10px);
+  transform:translateY(40px);
+  opacity:0;
+  transition:0.6s ease;
+}
+
+.card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.card:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 20px rgba(56,189,248,0.5);
+}
+
+/* TITULOS */
+h2{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+h3{
+  color:#7dd3fc;
+  margin-bottom:10px;
+}
+
+/* CURSOR */
+.cursor{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  position:fixed;
+  background:#38bdf8;
+  pointer-events:none;
+  filter:blur(10px);
+  z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="cursor"></div>
+
+<header>
+  <h1>🚀 Bitácora Digital</h1>
+  <p>Hola, soy <strong>Jhayr Giles</strong></p>
+</header>
+
+<section>
+  <h2>📘 Sobre el curso</h2>
+  <div class="card">
+    <p>El curso aborda el desarrollo de proyectos innovadores utilizando tecnologías 4.0, evaluando su impacto, viabilidad y aplicación en el mercado actual.</p>
+  </div>
+</section>
+
+<section>
+  <h2>📒 Bitácora</h2>
+
+  <div class="card">
+    <h3>🔹 Tecnologías 4.0</h3>
+    <p>Incluyen inteligencia artificial, big data, internet de las cosas y automatización. Estas tecnologías están revolucionando industrias al permitir procesos más rápidos, eficientes y personalizados.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔹 Factibilidad técnica</h3>
+    <p>Se evalúa si el proyecto puede desarrollarse con los recursos disponibles, considerando herramientas, conocimientos técnicos y limitaciones reales.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔹 Estudio de mercado</h3>
+    <p>Se analiza la demanda, el público objetivo y la competencia para validar si la idea tiene aceptación en el mercado.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔹 Viabilidad económica</h3>
+    <p>Permite calcular costos, inversión y ganancias esperadas, asegurando que el proyecto sea sostenible en el tiempo.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔹 Impacto de la innovación</h3>
+    <p>La innovación puede generar ventajas competitivas importantes, pero también implica riesgos que deben ser gestionados estratégicamente.</p>
+  </div>
+
+</section>
+
+<section>
+  <h2>🧾 Conclusión</h2>
+  <div class="card">
+    <p>
+      A lo largo de este curso, logré comprender la importancia de analizar un proyecto desde múltiples perspectivas: técnica, económica y de mercado. 
+      Aprendí que la innovación no solo implica creatividad, sino también planificación, evaluación de riesgos y toma de decisiones estratégicas. 
+      Este proceso me permitió desarrollar una visión más crítica y estructurada para la creación de proyectos, preparándome mejor para enfrentar desafíos reales en el ámbito profesional.
+    </p>
+  </div>
+</section>
+
+<script>
+// SCROLL
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', ()=>{
+  const trigger = window.innerHeight * 0.85;
+  cards.forEach(card=>{
+    if(card.getBoundingClientRect().top < trigger){
+      card.classList.add('show');
+    }
+  });
+});
+
+// CURSOR
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e=>{
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+</script>
+
+</body>
+</html>
